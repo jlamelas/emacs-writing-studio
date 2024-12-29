@@ -940,6 +940,11 @@ Advanced version control requires a Version Control System, such as Git.
     (ediff-window-setup-function 'ediff-setup-windows-plain))
 #+end_src
 
+Magit is a user-friendly interface for the Git source control tool. It provides helpful interfaces for many operations that you can perform with Git.
+
+#+begin_src elisp
+  (use-package magit)
+#+end_src
 ** Other text in modes
 Org is fantastic, but it is not the only text mode. EWS installed both Markdown and Fountain. Refer to section [[#sec-text-modes]] for details.
 
