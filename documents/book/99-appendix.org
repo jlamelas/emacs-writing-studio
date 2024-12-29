@@ -188,6 +188,37 @@ Vanilla Emacs has the slightly paternalistic habit of requiring a single =y= or 
   (setq use-short-answers t)
 #+end_src
 
+Install icons for the package that need it.
+
+#+begin_src elisp :noexport
+  ;; Icons
+#+end_src
+#+begin_src elisp
+  (use-package all-the-icons
+    :init
+    (when (and (not (member "all-the-icons" (font-family-list)))
+               (window-system))
+      (all-the-icons-install-fonts t)))
+
+  (use-package nerd-icons
+    :init
+    (when (and (not (member "nerd-icons" (font-family-list)))
+               (window-system))
+      (nerd-icons-install-fonts t)))
+#+end_src
+
+The package =doom-modeline= enhances de Emacs mode line.
+
+#+begin_src elisp :noexport
+  ;; doom-modeline
+#+end_src
+#+begin_src elisp
+  (use-package doom-modeline
+    :ensure t
+    :init (doom-modeline-mode 1)
+    :custom ((doom-modeline-height 15)))
+#+end_src
+
 The next two sections of code further improve the Emacs interface with two packages by Emacs guru Protesilaos Stavrou.
 
 The spacious padding package creates whitespace around windows, preventing crammed text on your screen. The =:init= section contains code Emacs evaluates when loading the package. In this case, it enables the Spacious Padding mode. The =:custom= section also sets the line spacing to a more spacious value. You can read the manual for this mode with =C-h R spacious=.

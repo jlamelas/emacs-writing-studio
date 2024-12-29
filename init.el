@@ -103,6 +103,27 @@
 
 (setq use-short-answers t)
 
+;; Icons
+
+(use-package all-the-icons
+  :init
+  (when (and (not (member "all-the-icons" (font-family-list)))
+             (window-system))
+    (all-the-icons-install-fonts t)))
+
+(use-package nerd-icons
+  :init
+  (when (and (not (member "nerd-icons" (font-family-list)))
+             (window-system))
+    (nerd-icons-install-fonts t)))
+
+;; doom-modeline
+
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 15)))
+
 ;; Spacious padding
 
 (use-package spacious-padding
