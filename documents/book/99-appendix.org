@@ -495,10 +495,14 @@ The Consult package provides a range of commands that replace common Emacs comma
   ;; Consult convenience functions
 #+end_src
 #+begin_src elisp
-  (use-package consult
-    :bind
-    (("C-c w h" . consult-org-heading)
-     ("C-c w g" . consult-grep)))
+          (use-package consult
+            :bind
+            (("C-c w h" . consult-org-heading)
+             ("C-c w g" . consult-grep)
+             ("C-c w o" . consult-outline)
+             ("C-c w b" . consult-buffer)
+             ("C-c w l" . consult-line)
+             ("C-c w f" . consult-find)))
 #+end_src
 
 * Inspiration
