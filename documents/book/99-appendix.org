@@ -253,9 +253,9 @@ Read the Modus Themes package manual for details with =C-h R modus=.
     (modus-themes-italic-constructs t)
     (modus-themes-bold-constructs t)
     (modus-themes-mixed-fonts t)
-    (modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted))
+    (modus-themes-to-toggle '(modus-operandi-tritanopia modus-vivendi-tritanopia))
     :init
-    (load-theme 'modus-operandi-tinted :no-confirm)
+    (load-theme 'modus-operandi-tritanopia :no-confirm)
     :bind
     (("C-c w t t" . modus-themes-toggle)
      ("C-c w t m" . modus-themes-select)
