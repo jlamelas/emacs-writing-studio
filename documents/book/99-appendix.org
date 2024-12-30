@@ -167,6 +167,16 @@ This function checks whether all these packages are available on your system. Fo
      "git"))
 #+end_src
 
+Custom personal variables and functions.
+
+#+begin_src elisp :exports none
+  ;; Load JLA functions
+#+end_src
+#+begin_src elisp
+  (load-file (concat (file-name-as-directory user-emacs-directory) "jla.el"))
+#+end_src
+
+
 ** Look and feel
 EWS espouses a minimalist aesthetic to provide a distraction-free environment. The first three lines of code disable the toolbar, the menu bar, and the scroll bar. The menu bar can be useful for beginners, and you can still access it with the =F10= key. If you like to keep the tool, menu, and/or scroll bars, then either remove the relevant lines, change the =-1= to a =1=, or add two semicolons at the start of the line to convert them to comments.
 

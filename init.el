@@ -93,6 +93,10 @@
    ("mpg321" "ogg123" "mplayer" "mpv" "vlc")
    "git"))
 
+;; Load JLA functions
+
+(load-file (concat (file-name-as-directory user-emacs-directory) "jla.el"))
+
 ;;; LOOK AND FEEL
 
 (tool-bar-mode -1)
