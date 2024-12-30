@@ -9,16 +9,11 @@
        (host (url-host url))
        (port (url-port url))
        ;; Use short timeout with curl to assure API port is open
-       (maybe-ollama-models (s-split "\n"
-                                     (shell-command-to-string (concat "curl -s --connect-timeout 0.5 '"
-                                                                      jla/ollama-api-endpoint "/api/tags' | jq -r '.models[].name'"))))
+       (maybe-ollama-models (split-string (shell-command-to-string
+					   (concat "curl -s --connect-timeout 0.5 '"
+						   jla/ollama-api-endpoint "/api/tags' | jq -r '.models[].name'")) "\n" t))
        (my-ollama-models (seq-filter (lambda (s) (not (string= s "")))
                                      maybe-ollama-models)))
-    ;; (gptel-make-ollama
-    ;;  "Ollama"
-    ;;  :host (concat host ":" (number-to-string port))
-    ;;  :models my-ollama-models
-    ;;  :stream nil)
     my-ollama-models))
 
 ;; set globally, as ollama-models is relevant to more than gptel
