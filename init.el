@@ -734,6 +734,11 @@
   :init
   (put 'dired-find-alternate-file 'disabled nil))
 
+;; all-the-icons-dired
+
+(use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode))
+
 ;; Hide hidden files
 
 (use-package dired

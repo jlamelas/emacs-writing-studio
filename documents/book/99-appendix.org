@@ -194,7 +194,7 @@ EWS espouses a minimalist aesthetic to provide a distraction-free environment. T
 
 The default startup message were disabled. Use package ~Dashborad~ to add a dashboard when Emacs is initialised with some useful links.
 
-#+begin_src emacs-lisp
+#+begin_src elisp
   (use-package dashboard
     :ensure t
     :custom
@@ -1141,6 +1141,16 @@ The last line enables opening new directories in the same buffer as the current 
     (delete-by-moving-to-trash t)
     :init
     (put 'dired-find-alternate-file 'disabled nil))
+#+end_src
+
+Show icons in Dired buffer.
+
+#+begin_src elisp :exports none
+  ;; all-the-icons-dired
+#+end_src
+#+begin_src elisp
+  (use-package all-the-icons-dired
+    :hook (dired-mode . all-the-icons-dired-mode))
 #+end_src
 
 The default setting for Dired is to show hidden files, even though they are hidden for a reason. This configuration uses ~dired-omit-mode~ to remove these hidden files from view. You can toggle this behaviour with the full stop key.
