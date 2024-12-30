@@ -1399,3 +1399,13 @@ Multiple cursors like Visual Studio Code.
   (use-package multiple-cursors
     :bind ("C-c j m d" . mc/mark-next-like-this-symbol))
 #+end_src
+
+** Move line/region up/down
+Moving lines and regions around.
+
+#+begin_src elisp
+  (use-package move-text
+    :bind
+    ("C-M-<up>" . 'move-text-down)
+    ("C-M-<down>" . 'move-text-up))
+#+end_src

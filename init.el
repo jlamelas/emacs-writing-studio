@@ -900,3 +900,8 @@
 
 (use-package multiple-cursors
   :bind ("C-c j m d" . mc/mark-next-like-this-symbol))
+
+(use-package move-text
+  :bind
+  ("C-M-<up>" . 'move-text-down)
+  ("C-M-<down>" . 'move-text-up))
