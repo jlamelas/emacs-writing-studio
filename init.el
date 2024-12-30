@@ -783,7 +783,7 @@
 (use-package gptel)
 (setq gptel-default-mode 'org-mode
       gptel-expert-commands t
-      gptel-model 'gpt-4o
+      gptel-model 'gemini-2.0-flash-exp
       gptel--debug nil)
 ;; defer nothing
 (require 'gptel)
