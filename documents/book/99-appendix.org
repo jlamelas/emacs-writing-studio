@@ -187,6 +187,28 @@ EWS espouses a minimalist aesthetic to provide a distraction-free environment. T
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
+  (toggle-frame-maximized)
+  (setq ring-bell-function 'ignore) ;; silence, please
+  (setq inhibit-startup-message t)
+#+end_src
+
+The default startup message were disabled. Use package ~Dashborad~ to add a dashboard when Emacs is initialised with some useful links.
+
+#+begin_src emacs-lisp
+  (use-package dashboard
+    :ensure t
+    :custom
+    (dashboard-startup-banner 'logo)
+    :config
+    (setq dashboard-center-content t
+          dashboard-items '((projects . 4)
+                            (recents . 4)
+                            (bookmarks . 4)
+                            (agenda . 4))
+          dashboard-icon-type 'all-the-icons
+          dashboard-set-file-icons t
+          dashboard-set-heading-icons t)
+      (dashboard-setup-startup-hook))
 #+end_src
 
 Vanilla Emacs has the slightly paternalistic habit of requiring a single =y= or =n= answer, while on some occasions, it requires you to type =yes= or =no=, due to the perceived higher risk of typing the wrong answer. The ~setq~ function sets the ~use-short-answers~ variable to =t=. If you want to retain this behaviour, change the =t= to nil. In Emacs Lisp, =t= means TRUE and =nil= is equivalent to FALSE. Emacs documentation often mentions setting a value to "non-nil", which is a double negative to suggest setting the variable to true.

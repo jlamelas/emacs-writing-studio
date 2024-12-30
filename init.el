@@ -102,6 +102,24 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
+(toggle-frame-maximized)
+(setq ring-bell-function 'ignore) ;; silence, please
+(setq inhibit-startup-message t)
+
+(use-package dashboard
+  :ensure t
+  :custom
+  (dashboard-startup-banner 'logo)
+  :config
+  (setq dashboard-center-content t
+        dashboard-items '((projects . 4)
+                          (recents . 4)
+                          (bookmarks . 4)
+                          (agenda . 4))
+        dashboard-icon-type 'all-the-icons
+        dashboard-set-file-icons t
+        dashboard-set-heading-icons t)
+    (dashboard-setup-startup-hook))
 
 ;; Short answers only please
 
