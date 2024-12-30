@@ -310,7 +310,7 @@
   (("C-c w h" . consult-org-heading)
    ("C-c w g" . consult-grep)
    ("C-c w o" . consult-outline)
-   ("C-c w b" . consult-buffer)
+   ("C-c w m" . consult-buffer)
    ("C-c w l" . consult-line)
    ("C-c w f" . consult-find)))
 
