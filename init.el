@@ -214,10 +214,11 @@
 
 (use-package helpful
   :bind
-  (("C-h f" . helpful-function)
+  (("C-h f" . helpful-callable)
    ("C-h x" . helpful-command)
    ("C-h k" . helpful-key)
-   ("C-h v" . helpful-variable)))
+   ("C-h v" . helpful-variable)
+   ("C-h C-d" . helpful-at-point)))
 
 ;;; Text mode settings
 
