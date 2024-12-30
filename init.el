@@ -808,3 +808,47 @@
   :stream t
   :key gptel-api-key
   :models '("gemini-2.0-flash-exp"))
+
+;; corfu
+
+(use-package corfu
+  :custom
+  (corfu-auto t)
+  (corfu-cycle t)
+  (corfu-auto-prefix 2)
+  (corfu-popupinfo-delay nil)
+  (corfu-preview-delay nil)
+  :bind
+  (:map corfu-map
+        ("C-n" . corfu-next)
+        ("C-p" . corfu-previous)
+        ("C-d" . corfu-delete)
+        ("C-g" . corfu-quit)
+        ("C-j" . corfu-insert)
+        ("<tab>" . corfu-next)
+        ("<s-tab>" . corfu-previous))
+  :init
+  (global-corfu-mode)
+  (corfu-history-mode)
+  (corfu-popupinfo-mode))
+
+;; icons to use in corfu
+(use-package kind-icon
+  :ensure t
+  :after corfu
+  :custom
+  (kind-icon-default-face 'corfu-default)
+  :config
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
+;; cape
+
+(use-package cape
+  :config
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions #'cape-emoji)
+  (add-to-list 'completion-at-point-functions #'cape-keyword)
+  (add-to-list 'completion-at-point-functions #'cape-history)
+  (add-to-list 'completion-at-point-functions #'cape-elisp-block)
+  (add-to-list 'completion-at-point-functions #'cape-elisp-symbol))
