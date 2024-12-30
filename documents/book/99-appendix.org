@@ -200,7 +200,7 @@ Vanilla Emacs has the slightly paternalistic habit of requiring a single =y= or 
 
 Install icons for the package that need it.
 
-#+begin_src elisp :noexport
+#+begin_src elisp :exports none
   ;; Icons
 #+end_src
 #+begin_src elisp
@@ -219,7 +219,7 @@ Install icons for the package that need it.
 
 The package =doom-modeline= enhances de Emacs mode line.
 
-#+begin_src elisp :noexport
+#+begin_src elisp :exports none
   ;; doom-modeline
 #+end_src
 #+begin_src elisp
@@ -1231,7 +1231,7 @@ The built-in Image-Dired package can generate thumbnails from within a Dired buf
 * Artificial intelligence
 The package ~gptel~ provides an interface to interact with various models and providers.
 
-#+begin_src elisp :export none
+#+begin_src elisp :exports none
   ;; gptel
 #+end_src
 #+begin_src elisp 
