@@ -542,7 +542,7 @@
   :custom
   (undo-tree-auto-save-history nil)
   :bind
-  (("C-c w u" . undo-tree-visualise)))
+  (("C-c w u" . undo-tree-visualize)))
 
 ;; Export citations with Org Mode
 

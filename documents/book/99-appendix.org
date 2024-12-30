@@ -844,7 +844,7 @@ Undo-Tree provides a graphical view of the various versions of the current buffe
     :custom
     (undo-tree-auto-save-history nil)
     :bind
-    (("C-c w u" . undo-tree-visualise)))
+    (("C-c w u" . undo-tree-visualize)))
 #+end_src
 
 ** Citations
