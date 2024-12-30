@@ -777,3 +777,34 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((dot . t))) ; this line activates GraophViz dot
+
+;; gptel
+
+(use-package gptel)
+(setq gptel-default-mode 'org-mode
+      gptel-expert-commands t
+      gptel-model 'gpt-4o
+      gptel--debug nil)
+;; defer nothing
+(require 'gptel)
+(require 'gptel-curl)
+(require 'gptel-transient)
+;; if API port was not found, remove backend
+(unless ollama-models
+  (setq gptel--known-backends
+        (assoc-delete-all "Ollama" gptel--known-backends #'equal)))
+(when ollama-models  ;; set in jla.el
+  (gptel-make-openai ; but for Ollama's newer compatible API
+      "ollama-compatible"
+    ;; :header (lambda () `(("Authorization" . ,(concat "Bearer " (gptel--get-api-key )))))
+    ;; :key gptel-api-key
+    :stream t
+    :host "localhost:11434"
+    :protocol "http"
+    :endpoint "/v1/chat/completions"
+    :models ollama-models))
+(gptel-make-gemini
+    "google-gemini"
+  :stream t
+  :key gptel-api-key
+  :models '("gemini-2.0-flash-exp"))
