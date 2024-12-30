@@ -832,6 +832,8 @@
   :stream t
   :key gptel-api-key
   :models '("gemini-2.0-flash-exp"))
+(global-set-key (kbd "C-c j a s") 'gptel-send)
+(global-set-key (kbd "C-c j a m") 'gptel-menu)
 
 ;; corfu
 

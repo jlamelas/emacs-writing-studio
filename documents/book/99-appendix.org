@@ -1296,6 +1296,8 @@ The package ~gptel~ provides an interface to interact with various models and pr
     :stream t
     :key gptel-api-key
     :models '("gemini-2.0-flash-exp"))
+  (global-set-key (kbd "C-c j a s") 'gptel-send)
+  (global-set-key (kbd "C-c j a m") 'gptel-menu)
 #+end_src
 
 * Code
