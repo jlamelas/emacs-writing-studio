@@ -117,7 +117,7 @@
 
 (use-package nerd-icons
   :init
-  (when (and (not (member "nerd-icons" (font-family-list)))
+  (when (and (not (member "Symbols Nerd Font Mono" (font-family-list)))
              (window-system))
     (nerd-icons-install-fonts t)))
 
