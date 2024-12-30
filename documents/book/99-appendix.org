@@ -1355,3 +1355,39 @@ The package ~cape~ (Completion At Point Extensions) permits multiple completion 
     (add-to-list 'completion-at-point-functions #'cape-elisp-block)
     (add-to-list 'completion-at-point-functions #'cape-elisp-symbol))
 #+end_src
+** Line numbers
+Display line numbers in programming modes and configuration modes.
+
+#+begin_src elisp
+  (use-package display-line-numbers
+    :ensure nil
+    :hook ((prog-mode conf-mode) . display-line-numbers-mode)
+    :init (setq display-line-numbers-width-start t))
+#+end_src
+** indentation
+A minor mode that highlights the indentation levels.
+
+#+begin_src elisp
+  (use-package highlight-indent-guides
+    :hook (prog-mode . highlight-indent-guides-mode)
+    :init (setq highlight-indent-guides-method 'character
+                highlight-indent-guides-responsive 'top
+                highlight-indent-guides-suppress-auto-error t))
+#+end_src
+
+Use spaces instead of tabs for indentation and setting indentation to two spaces.
+
+#+begin_src elisp
+  (setq-default tab-width 2)
+  (setq-default indent-tabs-mode nil)
+#+end_src
+
+** Parenthesis matching
+Activate the electric pair mode.
+
+#+begin_src elisp
+  (use-package elec-pair
+    :config
+    (electric-pair-mode +1)
+    :init (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
+#+end_src

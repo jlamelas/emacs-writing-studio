@@ -878,3 +878,22 @@
   (add-to-list 'completion-at-point-functions #'cape-history)
   (add-to-list 'completion-at-point-functions #'cape-elisp-block)
   (add-to-list 'completion-at-point-functions #'cape-elisp-symbol))
+
+(use-package display-line-numbers
+  :ensure nil
+  :hook ((prog-mode conf-mode) . display-line-numbers-mode)
+  :init (setq display-line-numbers-width-start t))
+
+(use-package highlight-indent-guides
+  :hook (prog-mode . highlight-indent-guides-mode)
+  :init (setq highlight-indent-guides-method 'character
+              highlight-indent-guides-responsive 'top
+              highlight-indent-guides-suppress-auto-error t))
+
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
+
+(use-package elec-pair
+  :config
+  (electric-pair-mode +1)
+  :init (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
