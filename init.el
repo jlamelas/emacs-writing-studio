@@ -897,3 +897,6 @@
   :config
   (electric-pair-mode +1)
   :init (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
+
+(use-package multiple-cursors
+  :bind ("C-c j m d" . mc/mark-next-like-this-symbol))

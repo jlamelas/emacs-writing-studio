@@ -1391,3 +1391,11 @@ Activate the electric pair mode.
     (electric-pair-mode +1)
     :init (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit))
 #+end_src
+
+** Multiple cursors
+Multiple cursors like Visual Studio Code.
+
+#+begin_src elisp
+  (use-package multiple-cursors
+    :bind ("C-c j m d" . mc/mark-next-like-this-symbol))
+#+end_src
