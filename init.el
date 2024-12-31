@@ -810,6 +810,11 @@
 (setq gptel-default-mode 'org-mode
       gptel-expert-commands t
       gptel-model 'gemini-2.0-flash-exp
+      gptel-backend (gptel-make-gemini
+                        "google-gemini"
+                      :stream t
+                      :key gptel-api-key
+                      :models '("gemini-2.0-flash-exp"))
       gptel--debug nil)
 ;; defer nothing
 (require 'gptel)
@@ -829,11 +834,6 @@
     :protocol "http"
     :endpoint "/v1/chat/completions"
     :models ollama-models))
-(gptel-make-gemini
-    "google-gemini"
-  :stream t
-  :key gptel-api-key
-  :models '("gemini-2.0-flash-exp"))
 (global-set-key (kbd "C-c j a s") 'gptel-send)
 (global-set-key (kbd "C-c j a m") 'gptel-menu)
 

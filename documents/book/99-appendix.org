@@ -732,6 +732,9 @@ The possibilities for capture templates are extensive and depend on your use cas
 #+end_src
     
 ** Denote
+:PROPERTIES:
+:ID:       456a5bf9-895e-44c5-b362-b5d72b466e84
+:END:
 Denote is a flexible note-taking and file management package. Refer to [[#sec-denote]] or the extensive Denote manual with =C-h R denote=. At a minimum, you need to configure the ~denote-directory~ variable to indicate the location of your notes.
 
 The EWS package includes a convenience function to improve how Denote displays links to attachments, linked to the ~denote-link-description-function~.
@@ -1274,6 +1277,11 @@ The package ~gptel~ provides an interface to interact with various models and pr
   (setq gptel-default-mode 'org-mode
         gptel-expert-commands t
         gptel-model 'gemini-2.0-flash-exp
+        gptel-backend (gptel-make-gemini
+                          "google-gemini"
+                        :stream t
+                        :key gptel-api-key
+                        :models '("gemini-2.0-flash-exp"))
         gptel--debug nil)
   ;; defer nothing
   (require 'gptel)
@@ -1293,11 +1301,6 @@ The package ~gptel~ provides an interface to interact with various models and pr
       :protocol "http"
       :endpoint "/v1/chat/completions"
       :models ollama-models))
-  (gptel-make-gemini
-      "google-gemini"
-    :stream t
-    :key gptel-api-key
-    :models '("gemini-2.0-flash-exp"))
   (global-set-key (kbd "C-c j a s") 'gptel-send)
   (global-set-key (kbd "C-c j a m") 'gptel-menu)
 #+end_src
@@ -1403,6 +1406,9 @@ Multiple cursors like Visual Studio Code.
 #+end_src
 
 ** Move line/region up/down
+:PROPERTIES:
+:ID:       a068cd2e-f71c-44ac-971e-9017d68ca09d
+:END:
 Moving lines and regions around.
 
 #+begin_src elisp
