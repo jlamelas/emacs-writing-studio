@@ -163,7 +163,7 @@
   (modus-themes-italic-constructs t)
   (modus-themes-bold-constructs t)
   (modus-themes-mixed-fonts t)
-  (modus-themes-to-toggle '(modus-operandi-tritanopia modus-vivendi-tritanopia))
+  (modus-themes-to-toggle '(modus-operandi-tritanopia modus-vivendi-tinted))
   :init
   (load-theme 'modus-operandi-tritanopia :no-confirm)
   :bind
