@@ -51,7 +51,7 @@
   :group 'ews
   :type 'list)
 
-(defcustom ews-hunspell-dictionaries "en_AU"
+(defcustom ews-hunspell-dictionaries "gl_ES, es_ES, en_GB"
   "Comma-separated list of Hunspell dictionaries."
   :group 'ews
   :type 'list)
