@@ -108,18 +108,20 @@
 
 (use-package dashboard
   :ensure t
-  :custom
-  (dashboard-startup-banner 'logo)
   :config
-  (setq dashboard-center-content t
-        dashboard-items '((projects . 4)
-                          (recents . 4)
-                          (bookmarks . 4)
-                          (agenda . 4))
-        dashboard-icon-type 'all-the-icons
-        dashboard-set-file-icons t
-        dashboard-set-heading-icons t)
-    (dashboard-setup-startup-hook))
+  (dashboard-setup-startup-hook)
+  :custom
+  (dashboard-center-content t)
+  (dashboard-startup-banner 'logo)
+  (dashboard-items '((recents . 5)
+                     (projects . 5)
+                     (bookmarks . 5)
+                     (agenda . 5)))
+  (dashboard-icon-type 'nerd-icons)
+  (dashboard-set-heading-icons t)
+  (dashboard-set-file-icons t)
+  :hook
+  (after-init . dashboard-setup-startup-hook))
 
 ;; Short answers only please
 
