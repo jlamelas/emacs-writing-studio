@@ -905,5 +905,5 @@
 
 (use-package move-text
   :bind
-  ("C-M-<up>" . 'move-text-down)
-  ("C-M-<down>" . 'move-text-up))
+  ("M-<up>" . 'move-text-up)
+  ("M-<down>" . 'move-text-down))
