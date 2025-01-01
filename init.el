@@ -834,6 +834,7 @@
     :protocol "http"
     :endpoint "/v1/chat/completions"
     :models ollama-models))
+(global-set-key (kbd "C-c j a c") 'gptel)
 (global-set-key (kbd "C-c j a s") 'gptel-send)
 (global-set-key (kbd "C-c j a m") 'gptel-menu)
 

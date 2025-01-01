@@ -1301,6 +1301,7 @@ The package ~gptel~ provides an interface to interact with various models and pr
       :protocol "http"
       :endpoint "/v1/chat/completions"
       :models ollama-models))
+  (global-set-key (kbd "C-c j a c") 'gptel)
   (global-set-key (kbd "C-c j a s") 'gptel-send)
   (global-set-key (kbd "C-c j a m") 'gptel-menu)
 #+end_src
