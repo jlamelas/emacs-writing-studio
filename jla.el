@@ -36,19 +36,6 @@
 ;; set globally, as ollama-models is relevant to more than gptel
 (setq ollama-models (jla/get-ollama-models))
 
-;; get the gemini api key
-(defvar gptel-api-key-file (expand-file-name "~/.emacs.d/gemini-api-key.txt")
-  "Ficheiro que contén a chave API de Google Gemini.")
-
-(defun gptel-get-api-key ()
-  "Lé a chave API de Google Gemini dende o ficheiro seguro."
-  (with-temp-buffer
-    (insert-file-contents gptel-api-key-file)
-    (buffer-string)))
-
-(defvar gptel-api-key #'gptel-get-api-key
-  "Función que devolve a chave API de Google Gemini.")
-
 ;; functions for terminals
 (defun jla/get-terminal-command ()
   "Devolve o comando para abrir a terminal dependendo do sistema operativo."

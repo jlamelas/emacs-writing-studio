@@ -1273,37 +1273,40 @@ The package ~gptel~ provides an interface to interact with various models and pr
   ;; gptel
 #+end_src
 #+begin_src elisp 
-  (use-package gptel)
-  (setq gptel-default-mode 'org-mode
-        gptel-expert-commands t
-        gptel-model 'gemini-2.0-flash-exp
-        gptel-backend (gptel-make-gemini
-                          "google-gemini"
-                        :stream t
-                        :key gptel-api-key
-                        :models '("gemini-2.0-flash-exp"))
-        gptel--debug nil)
-  ;; defer nothing
-  (require 'gptel)
-  (require 'gptel-curl)
-  (require 'gptel-transient)
-  ;; if API port was not found, remove backend
-  (unless ollama-models
-    (setq gptel--known-backends
-          (assoc-delete-all "Ollama" gptel--known-backends #'equal)))
-  (when ollama-models  ;; set in jla.el
-    (gptel-make-openai ; but for Ollama's newer compatible API
-        "ollama-compatible"
-      ;; :header (lambda () `(("Authorization" . ,(concat "Bearer " (gptel--get-api-key )))))
-      ;; :key gptel-api-key
+  (use-package gptel
+    :custom
+    (gptel-default-mode 'org-mode)
+    (gptel-expert-commands t)
+    (gptel-model 'gemini-2.0-flash-exp)
+    (gptel-api-key 'gptel-api-key-from-auth-source)  ;; Usar a función por defecto para obter a clave API
+    :bind (("C-c j a c" . gptel)
+           ("C-c j a s" . gptel-send)
+           ("C-c j a m" . gptel-menu))
+    :config
+    (gptel-make-gemini
+        "google-gemini"
+      :key 'gptel-api-key
       :stream t
-      :host "localhost:11434"
-      :protocol "http"
-      :endpoint "/v1/chat/completions"
-      :models ollama-models))
-  (global-set-key (kbd "C-c j a c") 'gptel)
-  (global-set-key (kbd "C-c j a s") 'gptel-send)
-  (global-set-key (kbd "C-c j a m") 'gptel-menu)
+      :models '("gemini-2.0-flash-exp"))
+    (require 'gptel-curl)
+    (require 'gptel-transient)
+    (unless ollama-models
+      (setq gptel--known-backends
+            (assoc-delete-all "Ollama" gptel--known-backends #'equal)))
+    (when ollama-models
+      (gptel-make-openai
+          "ollama-compatible"
+        :stream t
+        :host "localhost:11434"
+        :protocol "http"
+        :endpoint "/v1/chat/completions"
+        :models ollama-models))
+    (setq gptel-backend (gptel-make-openai "github-models"
+                          :host "models.inference.ai.azure.com"
+                          :endpoint "/chat/completions"
+                          :stream t
+                          :key 'gptel-api-key
+                          :models '(gpt-4o))))
 #+end_src
 
 * Code
