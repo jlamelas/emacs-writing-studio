@@ -810,7 +810,7 @@
   :custom
   (gptel-default-mode 'org-mode)
   (gptel-expert-commands t)
-  (gptel-model 'gemini-2.0-flash-exp)
+  (gptel-model 'gpt-4o)
   (gptel-api-key 'gptel-api-key-from-auth-source)  ;; Usar a función por defecto para obter a clave API
   :bind (("C-c j a c" . gptel)
          ("C-c j a s" . gptel-send)
@@ -839,7 +839,7 @@
                         :endpoint "/chat/completions"
                         :stream t
                         :key 'gptel-api-key
-                        :models '(gpt-4o))))
+                        :models '(gpt-4o "Meta-Llama-3.1-405B-Instruct" "Phi-3.5-MoE-instruct" "Mistral-large"))))
 
 ;; corfu
 
