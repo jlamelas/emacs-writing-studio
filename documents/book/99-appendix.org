@@ -1418,3 +1418,34 @@ Moving lines and regions around.
     ("M-<up>" . 'move-text-up)
     ("M-<down>" . 'move-text-down))
 #+end_src
+
+** Terminals
+Use =vterm= to integrate =libvterm= in Emacs. This not work on Windows systems.
+
+In Ubuntu you need to install this packages.
+
+#+begin_src bash
+  sudo apt install cmake libtool libtool-bin
+#+end_src
+
+Vterm needs =vterm-module= to work. We set ~vterm-always-compile-module~ to =t= to avoid compile it externaly or Emacs to asking us to compile on the first vterm run.
+
+#+begin_src elisp
+  (when (eq system-type 'gnu/linux)
+    (use-package vterm
+      :commands vterm
+      :custom
+      (vterm-always-compile-module t)
+      :config
+      (setq vterm-shell "bash")
+      (setq vterm-max-scrollback 10000)))
+#+end_src
+
+In Windows systems use =term= instead.
+
+#+begin_src elisp
+  (when (eq system-type 'windows-nt)
+    (use-package term
+      :config
+      (setq term-default-shell "powershell.exe")))
+#+end_src

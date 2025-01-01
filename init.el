@@ -908,3 +908,17 @@
   :bind
   ("M-<up>" . 'move-text-up)
   ("M-<down>" . 'move-text-down))
+
+(when (eq system-type 'gnu/linux)
+  (use-package vterm
+    :commands vterm
+    :custom
+    (vterm-always-compile-module t)
+    :config
+    (setq vterm-shell "bash")
+    (setq vterm-max-scrollback 10000)))
+
+(when (eq system-type 'windows-nt)
+  (use-package term
+    :config
+    (setq term-default-shell "powershell.exe")))

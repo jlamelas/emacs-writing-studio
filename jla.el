@@ -49,3 +49,33 @@
 (defvar gptel-api-key #'gptel-get-api-key
   "Función que devolve a chave API de Google Gemini.")
 
+;; functions for terminals
+(defun jla/get-terminal-command ()
+  "Devolve o comando para abrir a terminal dependendo do sistema operativo."
+  (cond
+   ((eq system-type 'gnu/linux) 'vterm)
+   ((eq system-type 'windows-nt) 'term)
+   (t 'term))) ; Default
+
+(defun jla/toggle-terminal-bottom ()
+  "Toggle terminal buffer in a window tha occupies the bottom third of the frame."
+  (interactive)
+  (let* ((terminal-comand (jla/get-terminal-command))
+         (terminal-buffer-name (concat "*" (symbol-name terminal-comand) "*"))
+         (existing-window nil))
+  (dolist (window (window-list))
+    (when (equal (buffer-name (window-buffer window)) terminal-buffer-name)
+      (setq existing-window window)))
+  (if existing-window
+      (delete-window existing-window)
+    (let ((window (split-window (frame-root-window)
+                                (floor (/ (frame-height) 3))
+                                'below)))
+      (select-window window)
+      (let ((buffer (get-buffer-create terminal-buffer-name)))
+        (with-current-buffer buffer
+          (funcall terminal-comand))
+        (set-window-buffer window buffer))))))
+
+;; global `key-binding' for toggle terminal
+(global-set-key (kbd "C-c v t") 'jla/toggle-terminal-bottom)
