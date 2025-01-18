@@ -925,3 +925,36 @@
   (use-package term
     :config
     (setq term-default-shell "powershell.exe")))
+
+(use-package lsp-mode
+  :ensure t
+  :commands lsp
+  :custom
+  (lsp-completion-provider :none)
+  :config
+  (with-eval-after-load 'lsp-volar
+    (lsp-dependency 'typescript
+                    '(:npm :package "typescript"
+                      :path "tsserver"))))
+
+;; Interface de usuario para LSP
+(use-package lsp-ui
+  :ensure t
+  :commands lsp-ui-mode
+  :after lsp-mode
+  :init
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-delay 0.2
+        lsp-ui-sideline-enable t
+        lsp-ui-sideline-show-code-actions t
+        lsp-ui-sideline-show-hover t))
+
+(use-package vue-mode
+  :ensure t
+  :mode "\\.vue\\'"
+  :hook (vue-mode . lsp))
+
+(use-package typescript-mode
+  :ensure t
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp))
