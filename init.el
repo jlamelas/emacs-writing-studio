@@ -814,7 +814,8 @@
   (gptel-api-key 'gptel-api-key-from-auth-source)  ;; Usar a función por defecto para obter a clave API
   :bind (("C-c j a c" . gptel)
          ("C-c j a s" . gptel-send)
-         ("C-c j a m" . gptel-menu))
+         ("C-c j a m" . gptel-menu)
+         ("M-n" . gptel-end-of-response))
   :config
   (gptel-make-gemini
       "google-gemini"
