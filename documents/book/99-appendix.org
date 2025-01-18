@@ -1374,7 +1374,7 @@ Display line numbers in programming modes and configuration modes.
     :hook ((prog-mode conf-mode) . display-line-numbers-mode)
     :init (setq display-line-numbers-width-start t))
 #+end_src
-** indentation
+** Indentation
 A minor mode that highlights the indentation levels.
 
 #+begin_src elisp
