@@ -953,6 +953,8 @@
 (use-package vue-mode
   :ensure t
   :mode "\\.vue\\'"
+  :config
+  (setq mmm-submode-decoration-level 0)
   :hook (vue-mode . lsp))
 
 (use-package typescript-mode
