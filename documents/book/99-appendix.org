@@ -1376,7 +1376,7 @@ Display line numbers in programming modes and configuration modes.
 #+begin_src elisp
   (use-package display-line-numbers
     :ensure nil
-    :hook ((prog-mode conf-mode) . display-line-numbers-mode)
+    :hook ((prog-mode conf-mode vue-mode) . display-line-numbers-mode)
     :init (setq display-line-numbers-width-start t))
 #+end_src
 ** Indentation

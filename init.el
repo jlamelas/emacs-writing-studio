@@ -893,7 +893,7 @@
 
 (use-package display-line-numbers
   :ensure nil
-  :hook ((prog-mode conf-mode) . display-line-numbers-mode)
+  :hook ((prog-mode conf-mode vue-mode) . display-line-numbers-mode)
   :init (setq display-line-numbers-width-start t))
 
 (use-package highlight-indent-guides
