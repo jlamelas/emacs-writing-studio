@@ -440,7 +440,8 @@ Writing without automated spell-checking would be very hard, even for the most e
     (ispell-set-spellchecker-params)
     (ispell-hunspell-add-multi-dic ews-hunspell-dictionaries)
     :hook
-    (text-mode . flyspell-mode)
+    ((text-mode . flyspell-mode)
+     ((prog-mode vue-mode) . flyspell-prog-mode))
     :bind
     (("C-c w s s" . ispell)
      ("C-;"       . flyspell-auto-correct-previous-word)))
@@ -921,7 +922,11 @@ The Writegood package helps detect weasel words, passive writing, and repeated w
     (("C-c w s r" . writegood-reading-ease)
      ("C-c w s l" . writegood-grade-level))
     :hook
-    (text-mode . writegood-mode))
+    (text-mode . writegood-mode)
+    :config
+    (add-hook 'vue-mode-hook
+              (lambda ()
+                (writegood-mode -1))))
 #+end_src
 
 The TitleCase package strives for the most accurate title-casing of sentences, lines, and regions of text in English prose. The EWS convenience function can do this for all headings in an Org file (section [[#sec-titlecase]]).

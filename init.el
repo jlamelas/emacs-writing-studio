@@ -266,7 +266,8 @@
   (ispell-set-spellchecker-params)
   (ispell-hunspell-add-multi-dic ews-hunspell-dictionaries)
   :hook
-  (text-mode . flyspell-mode)
+  ((text-mode . flyspell-mode)
+   ((prog-mode vue-mode) . flyspell-prog-mode))
   :bind
   (("C-c w s s" . ispell)
    ("C-;"       . flyspell-auto-correct-previous-word)))
@@ -594,7 +595,11 @@
   (("C-c w s r" . writegood-reading-ease)
    ("C-c w s l" . writegood-grade-level))
   :hook
-  (text-mode . writegood-mode))
+  (text-mode . writegood-mode)
+  :config
+  (add-hook 'vue-mode-hook
+            (lambda ()
+              (writegood-mode -1))))
 
 ;; Titlecasing
 

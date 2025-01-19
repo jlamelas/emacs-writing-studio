@@ -36,3 +36,7 @@ backups.bak/!home!peter!documents!notes!19960801T095403--oracles__divination_eso
 /documents/book/.dir-locals.el
 gemini-api-key.txt
 /.cache/
+/.lsp-session-v1
+/.mc-lists.el
+/.org-id-locations
+*.org#
