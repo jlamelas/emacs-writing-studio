@@ -1510,3 +1510,18 @@ We need to install the ~vue-language-server~ and ~typescript~.
 #+end_src
 
 And 
+
+** Debug
+* Social
+** Mastodon
+Open the Mastodon social network with =C-c j s m= key binding.
+
+#+begin_src elisp
+  (use-package mastodon
+    :ensure t
+    :init
+    (setq mastodon-instance-url "https://mastodon.gal"
+          mastodon-active-user "@jlamelas")
+    :bind
+    ("C-c j s m" . mastodon))
+#+end_src

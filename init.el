@@ -966,3 +966,11 @@
   :ensure t
   :mode "\\.ts\\'"
   :hook (typescript-mode . lsp))
+
+(use-package mastodon
+  :ensure t
+  :init
+  (setq mastodon-instance-url "https://mastodon.gal"
+        mastodon-active-user "@jlamelas")
+  :bind
+  ("C-c j s m" . mastodon))
