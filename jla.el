@@ -45,6 +45,9 @@
                                      maybe-github-models)))
     my-github-models))
 
+;; set globally
+(setq github-models (append (jla/get-github-models) '("DeepSeek-R1")))
+
 ;; functions for terminals
 (defun jla/get-terminal-command ()
   "Devolve o comando para abrir a terminal dependendo do sistema operativo."

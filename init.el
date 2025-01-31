@@ -845,7 +845,7 @@
                         :endpoint "/chat/completions"
                         :stream t
                         :key 'gptel-api-key
-                        :models (jla/get-github-models))))
+                        :models github-models)))
 
 ;; corfu
 
