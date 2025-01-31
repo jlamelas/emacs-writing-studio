@@ -36,6 +36,15 @@
 ;; set globally, as ollama-models is relevant to more than gptel
 (setq ollama-models (jla/get-ollama-models))
 
+(defun jla/get-github-models ()
+  "Return a list of GitHub models from the API, nil if the API is not available."
+  (when-let*
+      ((maybe-github-models (split-string (shell-command-to-string
+                                           (concat "curl -X GET -s --connect-timeout 0.5 'https://models.inference.ai.azure.com/models' | jq -r '.[].name'")) "\n" t))
+       (my-github-models (seq-filter (lambda (s) (not (string= s "")))
+                                     maybe-github-models)))
+    my-github-models))
+
 ;; functions for terminals
 (defun jla/get-terminal-command ()
   "Devolve o comando para abrir a terminal dependendo do sistema operativo."

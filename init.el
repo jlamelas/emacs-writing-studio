@@ -845,7 +845,7 @@
                         :endpoint "/chat/completions"
                         :stream t
                         :key 'gptel-api-key
-                        :models '(gpt-4o "Meta-Llama-3.1-405B-Instruct" "Phi-3.5-MoE-instruct" "Mistral-large"))))
+                        :models (jla/get-github-models))))
 
 ;; corfu
 
