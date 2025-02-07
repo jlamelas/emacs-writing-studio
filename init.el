@@ -826,7 +826,7 @@
       "google-gemini"
     :key 'gptel-api-key
     :stream t
-    :models '("gemini-2.0-flash-exp"))
+    :models '("gemini-2.0-flash-exp" "gemini-2.0-pro-exp-02-05" "gemini-2.0-flash-thinking-exp-01-21"))
   (require 'gptel-curl)
   (require 'gptel-transient)
   (unless ollama-models
