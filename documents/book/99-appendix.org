@@ -1512,6 +1512,21 @@ We need to install the ~vue-language-server~ and ~typescript~.
 And 
 
 ** Debug
+** AI pair programming
+Use =elysium= to AI pair ~programming~. It uses gptel as the back end.
+
+#+begin_src elisp
+  (use-package elysium)
+#+end_src
+
+Use =smerge-mode= to then merge the changes.
+
+#+begin_src elisp
+  (use-package smerge-mode
+    :ensure nil
+    :hook
+    (prog-mode . smerge-mode))
+#+end_src
 * Social
 ** Mastodon
 Open the Mastodon social network with =C-c j s m= key binding.
