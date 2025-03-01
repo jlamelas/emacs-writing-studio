@@ -967,6 +967,13 @@
   :mode "\\.ts\\'"
   :hook (typescript-mode . lsp))
 
+(use-package elysium)
+
+(use-package smerge-mode
+  :ensure nil
+  :hook
+  (prog-mode . smerge-mode))
+
 (use-package mastodon
   :ensure t
   :init
