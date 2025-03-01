@@ -57,7 +57,7 @@
    (t 'term))) ; Default
 
 (defun jla/toggle-terminal-bottom ()
-  "Toggle terminal buffer in a window tha occupies the bottom third of the frame."
+  "Toggle terminal buffer in a window that occupies the bottom third of the frame."
   (interactive)
   (let* ((terminal-comand (jla/get-terminal-command))
          (terminal-buffer-name (concat "*" (symbol-name terminal-comand) "*"))
